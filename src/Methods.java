@@ -5,6 +5,68 @@
  */
 //我试试看这段注释能不能更新上去
 public class Methods {
+	
+	public void bitShift(int x){
+		System.out.println(x>>1);
+		System.out.println(x>>2);
+		System.out.println(x<<1);
+		System.out.println(x<<2);
+	}
+	public void numOfBits(int x){
+		System.out.println(Integer.toBinaryString(x).length());
+	}
+	public int BigIntMulti(int x, int y){
+		int sum = 0;
+		if(x > y){
+			int temp = x;
+			x = y;
+			y = temp;
+		}
+		int m = Integer.toBinaryString(x).length();
+		int n = Integer.toBinaryString(y).length();
+		for(int i = 0; i < n; i += m){
+			sum = sum<<m;
+			sum += Multi(y>>i%(1<<m), x);
+			System.out.println("sum="+sum);
+		}
+		return sum;
+	}
+
+	boolean flag = false;
+	public int Multi(int x, int y){//Multiply equal length integers
+		if(x<0){
+			flag = flag^true;
+			x = -x;
+		}
+		if(y<0){
+			flag = flag^true;
+			y = -y;
+		}
+		int n = Integer.toBinaryString(x).length();
+		if(n == 1)
+			return x*y;
+		System.out.println("x="+x+",y="+y+",n="+n);
+		n/=2;
+		int A = x>>n;
+		int B = x%(1<<n);
+		int C = y>>n;
+		int D = y%(1<<n);
+		System.out.println("A="+Integer.toBinaryString(A));
+		System.out.println("B="+Integer.toBinaryString(B));
+		System.out.println("C="+Integer.toBinaryString(C));
+		System.out.println("D="+Integer.toBinaryString(D));
+		int AC = Multi(A, C);
+		System.out.println("AC="+Integer.toBinaryString(AC));
+		int BD = Multi(B, D);
+		System.out.println("BD="+Integer.toBinaryString(BD));
+		System.out.println("A-B="+Integer.toBinaryString(A-B));
+		System.out.println("D-C="+(D-C));
+		int result = AC<<(2*n) + (Multi(A-B, D-C)+AC+BD)<<n + BD;
+		if(flag) result = -result;
+		return result;
+	}
+
+
 	public void print(String s){
 		System.out.println(s);
 	}
@@ -99,7 +161,6 @@ public class Methods {
 		}
 		return result;
 	}
-	
-	
+
 	
 }//Methods
