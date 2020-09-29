@@ -3,6 +3,7 @@
  * @author ltc
  *
  */
+//我试试看这段注释能不能更新上去
 public class Methods {
 	public void print(String s){
 		System.out.println(s);
