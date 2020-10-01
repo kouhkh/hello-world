@@ -1,4 +1,7 @@
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+
 
 /**
  *	被Main.java调用的方法
@@ -7,6 +10,89 @@ import java.util.List;
  */
 //我试试看这段注释能不能更新上去
 public class Methods {
+	/*
+	 * List<>属于提供了改变自身的方法的引用类型，即不是传值而是传引用
+	 * 如果用了方法则可以改变值
+	 * 但如果是用的赋值的=就不能改变值
+	 */
+	public void testList(List<Boolean> a){
+		List<Boolean> b = new ArrayList<Boolean>();
+		b.add(false);
+		b.add(false);
+		a = b;
+	}
+	
+	public void testObjHashCode(){
+
+		String a = "";
+			a="";
+			a = a+"";
+			//System.out.println(Integer.toHexString(a.hashCode()));
+			System.out.println(a+"的哈希码是"+Integer.toHexString(a.hashCode()));
+	}
+	
+	/**
+	 * 5.1-2这个算法调用RANDOM(0,1)实现RANDOM(a,b)，运行时间用O(log(b-a))
+	 * @param a
+	 * @param b
+	 */
+	public void Random(int a, int b){
+		int c;
+		if(b>=a)c=b-a;else c=a-b;
+//		for(int )
+		
+	}
+	/**
+	 * 这段注释也是用来玩的，，，哈哈哈哈
+	 * @author ltc
+	 * 这段注释是用来玩的，，，哈哈哈哈
+	 * 
+	 * 这段注释还是用来玩的，，，哈哈哈哈
+	 * @return 
+	 */
+	public int Random01(){
+		if(Math.random()>0.5)
+			return 1;
+		else
+			return 0;
+	}
+	
+	/**
+	 * @author ltc
+	 * @param a
+	 * @param b
+	 * @param k 要求输入a和b都是2^k阶方阵，只管这一部分
+	 */
+	//学到了，说java方法不支持参数默认值
+	public int[][] Strassen(int[][] A, int[][] B){
+		System.out.println("Strassen算法因为不知道怎么搞下标标识子矩阵，就先不搞了");
+		return A;
+	}
+	
+	public void addBinary(boolean[] a, boolean[] b){
+		int n = Math.max(a.length, b.length);
+		boolean[] c = new boolean[n+1];
+		//运算用int型做
+		int A=0,B=0;
+		for(int i=0; i<a.length; i++){
+			A*=2;
+			if(a[i])A++;
+		}
+		for(int i=0; i<b.length; i++){
+			B*=2;
+			if(b[i])B++;
+		}
+		int C = A+B;
+		for(int i=n; i>=0; i--){
+			if(C%2>0)c[i]=true;
+			C/=2;
+		}
+		for(int i=0; i<n+1; i++){
+			System.out.print(c[i]);
+		}
+		return;
+	}
+	
 	/**
 	 * 2.1-2
 	 * @param A
@@ -22,6 +108,7 @@ public class Methods {
 		System.out.println("NIL");
 		return;
 	}
+	
 	public void insertionSort(int[] A){
 		long startTime=System.nanoTime();
 		for(int j=0; j<A.length; j++){
