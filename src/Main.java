@@ -1,5 +1,5 @@
 /**
- * Main·½·¨
+ * Mainæ–¹æ³•
  * @author ltc
  *
  */

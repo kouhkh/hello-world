@@ -1,11 +1,11 @@
 import java.util.List;
 
 /**
- *	±»Main.javaµ÷ÓÃµÄ·½·¨
+ *	è¢«Main.javaè°ƒç”¨çš„æ–¹æ³•
  * @author ltc
  *
  */
-//ÎÒÊÔÊÔ¿´Õâ¶Î×¢ÊÍÄÜ²»ÄÜ¸üĞÂÉÏÈ¥
+//æˆ‘è¯•è¯•çœ‹è¿™æ®µæ³¨é‡Šèƒ½ä¸èƒ½æ›´æ–°ä¸Šå»
 public class Methods {
 	/**
 	 * 2.1-2
@@ -37,7 +37,7 @@ public class Methods {
 			System.out.print(A[i]+"\t");
 
 		long endTime=System.nanoTime();
-		System.out.println("\n³ÌĞòÔËĞĞÁË"+(endTime-startTime)+"ns");
+		System.out.println("\nç¨‹åºè¿è¡Œäº†"+(endTime-startTime)+"ns");
 	}
 	
 	public void bitShift(int x){
@@ -110,9 +110,9 @@ public class Methods {
 		a = new int[n][n];
 		for(int i = 0; i < n; i++){
 			a[0][i] = i+1;
-		}//ÌîµÚ0ĞĞ
+		}//å¡«ç¬¬0è¡Œ
 		try{
-		for(int m = 1; m < n; m *= 2){//Ğ¡¿éµÄ´óĞ¡
+		for(int m = 1; m < n; m *= 2){//å°å—çš„å¤§å°
 			for(int t = 0; t < n/(2*m); t++){
 				for(int i = 0; i < m; i++){
 				for(int j = 0; j < m; j++){
@@ -153,7 +153,7 @@ public class Methods {
 	}
 	//2-3
 	public int[] BinarySearchBounds(int[] a, int x, int n){
-		//ÒªÕÒµ½´óÓÚxµÄ×îĞ¡ÔªËØÎ»ÖÃ£¬¿ÉÒÔÓÃBinarySearchµÄ½á¹ûÕÛ°ë²éÕÒ
+		//è¦æ‰¾åˆ°å¤§äºxçš„æœ€å°å…ƒç´ ä½ç½®ï¼Œå¯ä»¥ç”¨BinarySearchçš„ç»“æœæŠ˜åŠæŸ¥æ‰¾
 		int result[] = {0,0};
 		if(a[0] == x)
 			result[0] = -1;
@@ -170,7 +170,7 @@ public class Methods {
 			right = search;
 			while(left <= right){
 				middle = (left+right)/2;
-				if(x > a[middle] && x == a[middle+1])//middleÊÇ³ö¿Ú
+				if(x > a[middle] && x == a[middle+1])//middleæ˜¯å‡ºå£
 					left = right+1;
 				else if(x > a[middle])//x<a[middle-1]
 					left = middle;
@@ -184,7 +184,7 @@ public class Methods {
 			right = n-1;
 			while(left <= right){
 				middle = (left+right)/2;
-				if(x < a[middle] && x == a[middle-1])//middleÊÇ³ö¿Ú
+				if(x < a[middle] && x == a[middle-1])//middleæ˜¯å‡ºå£
 					left = right+1;
 				else if(x < a[middle])//x<a[middle-1]
 					right = middle;
