@@ -1,3 +1,5 @@
+import java.util.List;
+
 /**
  *	被Main.java调用的方法
  * @author ltc
@@ -5,6 +7,38 @@
  */
 //我试试看这段注释能不能更新上去
 public class Methods {
+	/**
+	 * 2.1-2
+	 * @param A
+	 * @param v
+	 */
+	public void linearSearch(int[] A, int v){
+		for(int i=0; i<A.length; i++){
+			if(A[i]==v){
+				System.out.println(i);
+				return;
+			}
+		}
+		System.out.println("NIL");
+		return;
+	}
+	public void insertionSort(int[] A){
+		long startTime=System.nanoTime();
+		for(int j=0; j<A.length; j++){
+			int key = A[j];
+			int i = j-1;
+			while (i>=0 && A[i]>key){
+				A[i+1] = A[i];
+				i = i-1;
+			}
+			A[i+1] = key;
+		}
+		for(int i=0; i<A.length; i++)
+			System.out.print(A[i]+"\t");
+
+		long endTime=System.nanoTime();
+		System.out.println("\n程序运行了"+(endTime-startTime)+"ns");
+	}
 	
 	public void bitShift(int x){
 		System.out.println(x>>1);
