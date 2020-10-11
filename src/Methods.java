@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 
@@ -8,8 +9,36 @@ import java.util.Random;
  * @author ltc
  *
  */
-//我试试看这段注释能不能更新上去
 public class Methods {
+	
+	
+	public void bucketSort(int [] arr) {
+		int max = arr[0],min = arr[0];    
+		//找到元素的极值差+1作为计数数组大小
+		for(int i:arr){
+			if(i>max){
+				max=i;
+			}    
+			if(i<min){
+				min=i;
+			}
+		}
+		int n=max-min+1;
+		int[] b = new int[n];
+		for(int i = 0 ; i < arr.length ; i ++) {
+			//装入桶
+			b[arr[i]-min]++;
+		}    
+		for(int i = 0 ; i < b.length ; i ++) {    
+			//b[i]是多大，则输出几次    
+			while(b[i]!=0) {    
+			//按次数顺序输出    
+			System.out.print(i+min+"\t");    
+			b[i]--;
+			}
+		}
+	}
+	
 	/*
 	 * List<>属于提供了改变自身的方法的引用类型，即不是传值而是传引用
 	 * 如果用了方法则可以改变值
@@ -285,3 +314,36 @@ public class Methods {
 
 	
 }//Methods
+
+/**
+ *	2020年10月7日22:49:30
+ */
+//int[] A = {1,8,8,4,5,5,8,3,2,5,1};
+//m.bucketSort(A);
+//int[] p = {1,8,8,4,5,5,8,3,2,5,1};
+//Methods.MatrixChainResult r = m.MatrixChain(p);
+//for(int i = 0;i<p.length;i++){
+//	for(int j = 0;j<p.length;j++){
+//		System.out.print(r.m[i][j] + "\t");
+//	}System.out.println();
+//}
+//System.out.println();
+//for(int i = 0;i<p.length;i++){
+//	for(int j = 0;j<p.length;j++){
+//		System.out.print(r.s[i][j] + "\t");
+//	}System.out.println();
+//}
+
+
+//m.Strassen(null, null);
+//m.testObjHashCode();
+//System.out.println(m.Random01());
+//for(int i = 50; i >0; i/=2){
+//	System.out.println(i);
+//}
+//List<Boolean> a = new ArrayList<Boolean>();
+//a.add(true);
+//a.add(false);
+//m.testList(a);
+//System.out.println(a.get(0));
+//System.out.println(a.get(1));
